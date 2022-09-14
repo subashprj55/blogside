@@ -63,7 +63,7 @@ const CreateUser = () => {
       refAddress.current.focus();
       return;
     }
-    if (phoneNo.length !== 1) {
+    if (phoneNo.length !== 10) {
       setDefault();
       refPhone.current.style.border = "2px solid red";
       refPhone.current.focus();
@@ -243,8 +243,9 @@ const CreateUser = () => {
           />
           <h1 className="mb-2 capitalize">phone number :</h1>
           <input
+            placeholder="10-digit"
             ref={refPhone}
-            type="text"
+            type="number"
             className="mb-3 p-1 pl-2 rounded-md outline-none border-2 border-sky-300 "
             value={phoneNo}
             onChange={(e) => {

@@ -6,6 +6,7 @@ import CreateUser from "./Component/CreateUser";
 import Try from "./Component/Try";
 import ForgotPassword from "./Component/ForgotPassword";
 import { useGlobalContext } from "./Component/Contex";
+import Home from "./Component/Home";
 
 function App() {
   const { userArray } = useGlobalContext();
@@ -27,7 +28,7 @@ function App() {
   }
   return (
     <>
-      <h1>this is home page</h1>
+      <Home />
     </>
   );
 }

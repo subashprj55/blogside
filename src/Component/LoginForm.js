@@ -4,7 +4,7 @@ import { useGlobalContext } from "./Contex";
 
 const LoginForm = ({ setLogIn }) => {
   const { userArray } = useGlobalContext();
-  //   console.log(userArray);
+  // console.log(userArray);
   //   useEffect(() => {
   //     setLogIn(true);
   //   }, []);

@@ -1,11 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import { useGlobalContext } from "./Contex";
 
 const Home = () => {
-  const { userArray } = useGlobalContext;
+  const { blogData } = useGlobalContext();
+
+  const [readMore, setReadMore] = useState(false);
+
   return (
-    <div>
-      <h1 className="text-center text-4xl mt-5">{`surprice fucker -> `}</h1>
+    <div className="bg-sky-300 p-5">
+      {blogData.map((item, index) => {
+        const { heading, text } = item;
+        return (
+          <div key={index}>
+            <h1 className="capitalize text-2xl font-medium text-white">
+              {heading}
+            </h1>
+            <p>
+              {`${readMore ? text : text.slice(0, 80)}`}
+              <button
+                className="text-white"
+                onClick={(e) => {
+                  setReadMore(!readMore);
+                }}
+              >
+                {readMore ? "see less" : "...see mover"}
+              </button>
+            </p>
+          </div>
+        );
+      })}
     </div>
   );
 };

@@ -38,6 +38,19 @@ const ForgotPassword = () => {
 
   const handelSubmit = (e) => {
     e.preventDefault();
+    if (password.length === 0) {
+      refPassword.current.style.border = "2px solid red";
+      return;
+    }
+
+    if (password !== rePassword) {
+      setPassword("");
+      setRePassword("");
+      refPassword.current.style.border = "2px solid red";
+      refRePassword.current.style.border = "2px solid red";
+      refPassword.current.focus();
+      return;
+    }
 
     const itemIndex = userArray.findIndex((item) => item.userId === userId);
     userArray[itemIndex].password = password;
@@ -64,7 +77,7 @@ const ForgotPassword = () => {
           <FaArrowLeft className="text-yellow-100 text-xl" />
         </Link>
 
-        <div className="absolute top-3 left-16">
+        <div className="absolute top-3 left-12">
           <h1 className="text-center capitalize text-pink-600">
             {successMessage}
           </h1>

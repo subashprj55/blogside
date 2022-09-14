@@ -9,7 +9,6 @@ import { useGlobalContext } from "./Component/Contex";
 import Home from "./Component/Home";
 
 function App() {
-  const { userArray } = useGlobalContext();
   const [logIn, setLogIn] = useState(false);
 
   if (!logIn) {

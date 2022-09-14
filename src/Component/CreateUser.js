@@ -110,7 +110,7 @@ const CreateUser = () => {
       left: 0,
       behavior: "smooth",
     });
-    setSucessMessage("your account is crate sucessfully!!");
+    setSucessMessage("your account has been created sucessfully!!");
     localStorage.setItem("userAccount", JSON.stringify(userArray));
     // removeSucessMessage();
   };

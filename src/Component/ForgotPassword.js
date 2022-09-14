@@ -45,7 +45,7 @@ const ForgotPassword = () => {
     setRecoverPin("");
     setPassword("");
     setRePassword("");
-    setSucessMessage("your password change!!");
+    setSucessMessage("your password has been changed sucessfully!!");
     setShowPasswordFild(false);
     window.scrollTo({
       top: 0,

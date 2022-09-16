@@ -1,13 +1,12 @@
-import React, { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useGlobalContext } from "./Contex";
 
-const LoginForm = ({ setLogIn }) => {
-  const { userArray } = useGlobalContext();
-  // console.log(userArray);
-  //   useEffect(() => {
-  //     setLogIn(true);
-  //   }, []);
+const LoginForm = () => {
+  const { userArray, setUserIdentity } = useGlobalContext();
+  console.log(userArray);
+
+  const navigate = useNavigate();
 
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
@@ -43,7 +42,13 @@ const LoginForm = ({ setLogIn }) => {
       return;
     }
     setErrorMessage("");
-    setLogIn(true);
+    setUserIdentity(findIndex());
+    navigate("/home");
+  };
+  const findIndex = () => {
+    return userArray.findIndex(
+      (item) => item.userId === userId && item.password === password
+    );
   };
 
   const showError = () => {

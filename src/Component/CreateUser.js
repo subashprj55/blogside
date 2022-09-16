@@ -101,6 +101,7 @@ const CreateUser = () => {
       address: address,
       phoneNo: phoneNo,
       recoverPin: recoverPin,
+      blogData: [],
     });
 
     console.log(userArray);
@@ -111,7 +112,8 @@ const CreateUser = () => {
       behavior: "smooth",
     });
     setSucessMessage("your account has been created sucessfully!!");
-    localStorage.setItem("userAccount", JSON.stringify(userArray));
+    // localStorage.setItem("userAccount", JSON.stringify(userArray));
+
     // removeSucessMessage();
   };
 
@@ -138,10 +140,6 @@ const CreateUser = () => {
     setPhoneNo("");
     setRecoverPin("");
   };
-
-  // useEffect(() => {
-  //   localStorage.setItem("userAccount", JSON.stringify(userArray));
-  // }, [userArray]);
 
   return (
     <div className="bg-sky-300 p-3">

@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Try = () => {
-  // const just = [2, 3, 4];
+  // const [just, setJust] = useState([2, 3, 4]);
+
   // just.unshift(0, 1);
   // console.log(just);
 

@@ -15,6 +15,7 @@ const CreateBlog = () => {
       date: getDate(),
       text: body,
     });
+    localStorage.setItem("userAccount", JSON.stringify(userArray));
     navigate("/home");
   };
   const getDate = () => {
@@ -26,7 +27,6 @@ const CreateBlog = () => {
       year: today.getFullYear(),
     };
   };
-  // console.log(getDate());
 
   return (
     <div className="bg-sky-300 p-7">

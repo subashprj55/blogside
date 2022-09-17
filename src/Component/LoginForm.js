@@ -4,7 +4,7 @@ import { useGlobalContext } from "./Contex";
 
 const LoginForm = () => {
   const { userArray, setUserIdentity } = useGlobalContext();
-  console.log(userArray);
+  // console.log(userArray);
 
   const navigate = useNavigate();
 
@@ -44,6 +44,7 @@ const LoginForm = () => {
     setErrorMessage("");
     setUserIdentity(findIndex());
     navigate("/home");
+    console.log(userArray);
   };
   const findIndex = () => {
     return userArray.findIndex(
@@ -57,6 +58,16 @@ const LoginForm = () => {
     refUserId.current.focus();
     setErrorMessage("(invalid user id and password)");
   };
+
+  const clearLocalStorage = () => {
+    console.log(userArray);
+    while (userArray.length > 0) {
+      userArray.pop();
+    }
+    localStorage.setItem("userAccount", JSON.stringify(userArray));
+    console.log(userArray);
+  };
+
   return (
     <>
       <div className=" bg-sky-300 pr-[10%] pl-[10%] h-[500px] pt-10 pb-10">
@@ -100,6 +111,9 @@ const LoginForm = () => {
             Forgot Password?
           </Link>
         </form>
+        {/* <button className="p-2 bg-yellow-300 " onClick={clearLocalStorage}>
+          clear localStorage
+        </button> */}
       </div>
     </>
   );

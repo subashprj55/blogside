@@ -1,10 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
 import { FaArrowLeft, FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useGlobalContext } from "../Component/Contex";
 const CreateUser = () => {
   const { userArray } = useGlobalContext();
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const [userName, setUserName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -89,10 +90,9 @@ const CreateUser = () => {
       refPassword.current.style.border = "2px solid red";
       refRePassword.current.style.border = "2px solid red";
       refPassword.current.focus();
-      return console.log("password doesnot match");
+      return;
     }
     setDefault();
-    console.log("password match");
     userArray.push({
       name: userName,
       lastName: lastName,
@@ -106,22 +106,11 @@ const CreateUser = () => {
 
     console.log(userArray);
     clearAllText();
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "smooth",
-    });
     setSucessMessage("your account has been created sucessfully!!");
-    // localStorage.setItem("userAccount", JSON.stringify(userArray));
-
-    // removeSucessMessage();
+    localStorage.setItem("userAccount", JSON.stringify(userArray));
+    navigate("/");
   };
 
-  //   const removeSucessMessage = () => {
-  //     const timer = setTimeout(() => {
-  //       setSucessMessage("");
-  //     }, 3000);
-  //   };
   const setDefault = () => {
     refLastName.current.style.border = "2px solid rgb(125 211 252)";
     refPassword.current.style.border = "2px solid rgb(125 211 252)";

@@ -2,6 +2,15 @@ import React, { useState } from "react";
 
 const Try = () => {
   // const [just, setJust] = useState([2, 3, 4]);
+  // const arr = [
+  //   2,
+  //   {
+  //     name: "subash",
+  //   },
+  // ];
+  // console.log(arr);
+  // arr[1].name = "manish";
+  // console.log(arr);
 
   // just.unshift(0, 1);
   // console.log(just);

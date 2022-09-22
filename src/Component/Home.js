@@ -33,7 +33,7 @@ const Home = () => {
                 <div
                   className={`absolute z-50 right-0 mt-4 pb-4 bg-white ${
                     openSideBar ? "w-[50%]" : "w-[0%]"
-                  }  pl-5 duration-500`}
+                  }  pl-5 duration-500 overflow-hidden`}
                 >
                   <Link to={"/"}>
                     <button className="capitalize text-lg border-b-2 border-black w-[100%] pb-2 pt-2">

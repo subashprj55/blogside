@@ -10,7 +10,8 @@ const CreateBlog = () => {
   const [heading, setHeading] = useState("");
   const [body, setBody] = useState("");
 
-  const handleUpload = () => {
+  const handleUpload = (e) => {
+    e.preventDefault();
     if (isEditing) {
       userArray[userIdentity].blogData[editIndex].heading = heading;
       userArray[userIdentity].blogData[editIndex].text = body;
@@ -47,31 +48,34 @@ const CreateBlog = () => {
 
   return (
     <div className="bg-sky-300 p-7">
-      <h1 className="capitalize mb-2 text-2xl">heading :-</h1>
-      <input
-        className="mb-3 p-1 pl-2  outline-none w-[100%] font-medium text-lg"
-        type="text"
-        value={heading}
-        onChange={(e) => setHeading(e.target.value)}
-      />
-      <h1 className="capitalize mb-2 text-xl ">body :-</h1>
-      <textarea
-        value={body}
-        onChange={(e) => setBody(e.target.value)}
-        className="w-[100%] outline-none p-1 pl-2 mb-3"
-        name=""
-        id=""
-        cols="30"
-        rows="10"
-      ></textarea>
-      <button
-        onClick={handleUpload}
-        className={`${
-          isEditing ? "text-green-500" : ""
-        } uppercase p-2 rounded-md tracking-wider w-32 bg-yellow-300 hover:bg-yellow-400 active:bg-yellow-500`}
-      >
-        {isEditing ? "update" : "upload"}
-      </button>
+      <form action="" onSubmit={handleUpload}>
+        <h1 className="capitalize mb-2 text-2xl">heading :-</h1>
+        <input
+          className="mb-3 p-1 pl-2  outline-none w-[100%] font-medium text-lg"
+          type="text"
+          value={heading}
+          onChange={(e) => setHeading(e.target.value)}
+          required
+        />
+        <h1 className="capitalize mb-2 text-xl ">body :-</h1>
+        <textarea
+          value={body}
+          onChange={(e) => setBody(e.target.value)}
+          className="w-[100%] outline-none p-1 pl-2 mb-3"
+          name=""
+          id=""
+          cols="30"
+          rows="10"
+        ></textarea>
+        <button
+          className={`${
+            isEditing ? "text-green-500" : ""
+          } uppercase p-2 rounded-md tracking-wider w-32 bg-yellow-300 hover:bg-yellow-400 active:bg-yellow-500`}
+        >
+          {isEditing ? "update" : "upload"}
+        </button>
+        {/* <input type="file" name="myImage" /> */}
+      </form>
     </div>
   );
 };

@@ -16,8 +16,6 @@ const CreateUser = () => {
   const [phoneNo, setPhoneNo] = useState("");
   const [recoverPin, setRecoverPin] = useState("");
 
-  const [successMessage, setSucessMessage] = useState("");
-
   const refPassword = useRef();
   const refUser = useRef();
   const refLastName = useRef();
@@ -103,10 +101,6 @@ const CreateUser = () => {
       recoverPin: recoverPin,
       blogData: [],
     });
-
-    console.log(userArray);
-    clearAllText();
-    setSucessMessage("your account has been created sucessfully!!");
     localStorage.setItem("userAccount", JSON.stringify(userArray));
     navigate("/");
   };
@@ -119,32 +113,13 @@ const CreateUser = () => {
     refPhone.current.style.border = "2px solid rgb(125 211 252)";
     refRecoverPin.current.style.border = "2px solid rgb(125 211 252)";
   };
-  const clearAllText = () => {
-    setUserName("");
-    setLastName("");
-    setUserId("");
-    setPassword("");
-    setRePassword("");
-    setAddress("");
-    setPhoneNo("");
-    setRecoverPin("");
-  };
 
   return (
     <div className="bg-sky-300 p-3">
       <div>
         <Link to="/">
-          <FaArrowLeft
-            className="text-yellow-100 text-xl"
-            onClick={clearAllText}
-          />
+          <FaArrowLeft className="text-yellow-100 text-xl" />
         </Link>
-
-        <div className="absolute top-3 left-16">
-          <h1 className="text-center capitalize text-yellow-800">
-            {successMessage}
-          </h1>
-        </div>
       </div>
       {/* creating form */}
       <form action="" onSubmit={handelSubmit}>

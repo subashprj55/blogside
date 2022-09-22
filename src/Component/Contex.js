@@ -5,7 +5,7 @@ const AppContex = React.createContext();
 const AppProvider = ({ children }) => {
   let userArray = getLocalStorage();
 
-  const [userIdentity, setUserIdentity] = useState(0);
+  const [userIdentity, setUserIdentity] = useState(getLocalStorageIdentity());
   const [editIndex, setEditIndex] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
 
@@ -32,6 +32,13 @@ const getLocalStorage = () => {
     return (item = JSON.parse(localStorage.getItem("userAccount")));
   }
   return [];
+};
+const getLocalStorageIdentity = () => {
+  let item = localStorage.getItem("userIdentity");
+  if (item) {
+    return (item = JSON.parse(localStorage.getItem("userIdentity")));
+  }
+  return null;
 };
 
 export const useGlobalContext = () => {

@@ -1,12 +1,16 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useGlobalContext } from "./Contex";
 
 const LoginForm = () => {
-  const { userArray, setUserIdentity } = useGlobalContext();
-  // console.log(userArray);
+  const { userArray, setUserIdentity, userIdentity } = useGlobalContext();
 
   const navigate = useNavigate();
+  useEffect(() => {
+    if (userIdentity !== null) {
+      navigate("/home");
+    }
+  }, []);
 
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
@@ -44,12 +48,13 @@ const LoginForm = () => {
     setErrorMessage("");
     setUserIdentity(findIndex());
     navigate("/home");
-    console.log(userArray);
   };
   const findIndex = () => {
-    return userArray.findIndex(
+    const index = userArray.findIndex(
       (item) => item.userId === userId && item.password === password
     );
+    localStorage.setItem("userIdentity", JSON.stringify(index));
+    return index;
   };
 
   const showError = () => {

@@ -5,9 +5,14 @@ import Blog from "./Blog";
 import { useGlobalContext } from "./Contex";
 
 const Home = () => {
-  const { userArray, userIdentity } = useGlobalContext();
+  const { userArray, userIdentity, setUserIdentity } = useGlobalContext();
   const [update, setUpdate] = useState(0);
   const [openSideBar, setOpenSideBar] = useState(false);
+
+  const handelLogout = () => {
+    setUserIdentity(null);
+    localStorage.setItem("userIdentity", JSON.stringify(null));
+  };
 
   return (
     <>
@@ -36,7 +41,10 @@ const Home = () => {
                   }  pl-5 duration-500 overflow-hidden`}
                 >
                   <Link to={"/"}>
-                    <button className="capitalize text-lg border-b-2 border-black w-[100%] pb-2 pt-2">
+                    <button
+                      className="capitalize text-lg border-b-2 border-black w-[100%] pb-2 pt-2"
+                      onClick={handelLogout}
+                    >
                       logout
                     </button>
                   </Link>

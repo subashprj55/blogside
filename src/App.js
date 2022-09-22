@@ -7,6 +7,7 @@ import Try from "./Component/Try";
 import ForgotPassword from "./Component/ForgotPassword";
 import Home from "./Component/Home";
 import CreateBlog from "./Component/CreateBlog";
+import Profile from "./Component/Profile";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="forgot-password" element={<ForgotPassword />} />
           <Route path="home" element={<Home />} />
           <Route path="create-blog" element={<CreateBlog />} />
+          <Route path="profile" element={<Profile />} />
         </Routes>
         <Try />
       </Router>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaTasks } from "react-icons/fa";
+import { FcBusinessman } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import Blog from "./Blog";
 import { useGlobalContext } from "./Contex";
@@ -18,11 +19,16 @@ const Home = () => {
     <>
       <div className="bg-yellow-400 p-2 ">
         <div className="flex justify-between">
-          <div className="flex items-center pl-5">
-            <p className="text-xl capitalize tracking-wide">
-              {userArray[userIdentity].name}
-            </p>
-          </div>
+          <Link to={"/profile"}>
+            <div className="flex items-center ml-5">
+              <div className="w-10 h-10 rounded-full bg-zinc-600 -mt-1 -mb-1 mr-2">
+                <FcBusinessman className="text-4xl " />
+              </div>
+              <p className="text-xl capitalize tracking-wide">
+                {userArray[userIdentity].name}
+              </p>
+            </div>
+          </Link>
           <div className="flex">
             <Link to={"/create-blog"}>
               <h1 className="capitalize p-[5px] mr-2 bg-[#f1f1f1] rounded-2xl">
@@ -81,9 +87,6 @@ const Home = () => {
             );
           })
         )}
-        {/* {blogData.map((item, index) => {
-          return <Blog key={index} {...item} index={index} />;
-        })} */}
       </div>
     </>
   );

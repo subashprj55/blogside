@@ -99,6 +99,7 @@ const CreateUser = () => {
       address: address,
       phoneNo: phoneNo,
       recoverPin: recoverPin,
+      photo: "",
       blogData: [],
     });
     localStorage.setItem("userAccount", JSON.stringify(userArray));

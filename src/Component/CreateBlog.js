@@ -74,7 +74,6 @@ const CreateBlog = () => {
         >
           {isEditing ? "update" : "upload"}
         </button>
-        {/* <input type="file" name="myImage" /> */}
       </form>
     </div>
   );

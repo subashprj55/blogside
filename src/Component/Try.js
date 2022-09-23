@@ -9,13 +9,12 @@ const Try = () => {
   //   },
   // ];
   // console.log(arr);
-  // arr[1].name = "manish";
+  // arr[1].add = "rapti";
+  // arr[1].name = "ram";
   // console.log(arr);
-
   // just.unshift(0, 1);
   // console.log(just);
-
-  const now = new Date();
+  // const now = new Date();
   // console.log(now);
   // console.log(now.getFullYear());
   // console.log(now.getMonth());

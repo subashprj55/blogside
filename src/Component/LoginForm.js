@@ -75,7 +75,13 @@ const LoginForm = () => {
 
   return (
     <>
-      <div className=" bg-sky-300 pr-[10%] pl-[10%] h-[500px] pt-10 pb-10">
+      <div className="hidden md:block mt-10">
+        <h1 className="text-center text-3xl">Working on big screen..... </h1>
+        <h1 className="text-center text-xl underline underline-offset-2">
+          PLEASE! tryout from mobile..
+        </h1>
+      </div>
+      <div className=" bg-sky-300 pr-[10%] pl-[10%] h-[500px] pt-10 pb-10 md:hidden">
         <form className="" action="" onSubmit={checkLogIN}>
           <div className="pl-7">
             <h1 className="capitalize mb-2 tracking-wide text-lg">user name</h1>

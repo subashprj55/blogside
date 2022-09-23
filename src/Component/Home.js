@@ -21,9 +21,20 @@ const Home = () => {
         <div className="flex justify-between">
           <Link to={"/profile"}>
             <div className="flex items-center ml-5">
-              <div className="w-10 h-10 rounded-full bg-zinc-600 -mt-1 -mb-1 mr-2">
-                <FcBusinessman className="text-4xl " />
-              </div>
+              {"photo" in userArray[userIdentity] ? (
+                <div className="w-9 h-10 -mt-1 -mb-1 mr-2 rounded-full overflow-hidden relative">
+                  <img
+                    src={userArray[userIdentity].photo}
+                    alt="your photo"
+                    className="w-12 h-12 object-cover rounded-full absolute"
+                  />
+                </div>
+              ) : (
+                <div className="w-10 h-10 rounded-full bg-zinc-600 -mt-1 -mb-1 mr-2">
+                  <FcBusinessman className="w-9 h-10 ml-[2px]" />
+                </div>
+              )}
+
               <p className="text-xl capitalize tracking-wide">
                 {userArray[userIdentity].name}
               </p>
@@ -42,7 +53,7 @@ const Home = () => {
                   onClick={(e) => setOpenSideBar(!openSideBar)}
                 />
                 <div
-                  className={`absolute z-50 right-0 mt-4 pb-4 bg-white ${
+                  className={`absolute z-50 right-0 mt-4 pb-4 h-screen bg-white ${
                     openSideBar ? "w-[50%]" : "w-[0%]"
                   }  pl-5 duration-500 overflow-hidden`}
                 >
@@ -54,7 +65,11 @@ const Home = () => {
                       logout
                     </button>
                   </Link>
-                  <br />
+                  <Link to={"/profile"}>
+                    <button className="capitalize text-lg border-b-2 border-black w-[100%] pb-2 pt-2">
+                      profile
+                    </button>
+                  </Link>
                   <button className="capitalize text-lg  border-b-2 border-black w-[100%] pb-2 pt-2">
                     setting
                   </button>

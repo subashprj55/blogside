@@ -5,7 +5,6 @@ import { useGlobalContext } from "./Contex";
 const Profile = () => {
   const { userArray, userIdentity } = useGlobalContext();
 
-  console.log(userArray[userIdentity]);
   const [rerander, setRerender] = useState(0);
   const onImageChange = (e) => {
     userArray[userIdentity].photo = URL.createObjectURL(e.target.files[0]);
@@ -25,8 +24,6 @@ const Profile = () => {
         ) : (
           <FcBusinessman className="h-56 w-56 bg-zinc-600 mb-3" />
         )}
-
-        {/* ////////////////////////////////// */}
 
         <label
           htmlFor="filePicker"

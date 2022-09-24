@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { FcBusinessman } from "react-icons/fc";
+import { FaArrowLeft } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import { useGlobalContext } from "./Contex";
 
 const Profile = () => {
@@ -13,8 +15,13 @@ const Profile = () => {
   };
 
   return (
-    <div className="bg-sky-300 pt-10 min-h-screen">
-      <div className="ml-10">
+    <div className="bg-sky-300 p-3 min-h-screen">
+      <div>
+        <Link to="/home">
+          <FaArrowLeft className="text-yellow-100 text-xl" />
+        </Link>
+      </div>
+      <div className="ml-10 mt-3">
         {"photo" in userArray[userIdentity] ? (
           <img
             src={userArray[userIdentity].photo}

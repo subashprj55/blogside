@@ -70,9 +70,11 @@ const Home = () => {
                       profile
                     </button>
                   </Link>
-                  <button className="capitalize text-lg  border-b-2 border-black w-[100%] pb-2 pt-2">
-                    setting
-                  </button>
+                  <Link to={"/setting"}>
+                    <button className="capitalize text-lg  border-b-2 border-black w-[100%] pb-2 pt-2">
+                      setting
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>

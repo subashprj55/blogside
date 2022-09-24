@@ -76,7 +76,6 @@ const ForgotPassword = () => {
         <Link to="/">
           <FaArrowLeft className="text-yellow-100 text-xl" />
         </Link>
-
         <div className="absolute top-3 left-12">
           <h1 className="text-center capitalize text-pink-600">
             {successMessage}

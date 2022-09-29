@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 import { useGlobalContext } from "./Contex";
 
 const CreateBlog = () => {
@@ -47,8 +48,13 @@ const CreateBlog = () => {
   });
 
   return (
-    <div className="bg-sky-300 p-7">
-      <form action="" onSubmit={handleUpload}>
+    <div className="bg-sky-300 min-h-screen p-3 md:p-5">
+      <div>
+        <Link to="/home">
+          <FaArrowLeft className="text-yellow-100 text-xl" />
+        </Link>
+      </div>
+      <form action="" onSubmit={handleUpload} className="p-4 md:m-5">
         <h1 className="capitalize mb-2 text-2xl">heading :-</h1>
         <input
           className="mb-3 p-1 pl-2  outline-none w-[100%] font-medium text-lg"

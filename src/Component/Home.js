@@ -17,7 +17,7 @@ const Home = () => {
 
   return (
     <>
-      <div className="bg-yellow-400 p-2 ">
+      <div className="bg-yellow-400 p-2 md:pl-5 md:pr-5">
         <div className="flex justify-between">
           <Link to={"/profile"}>
             <div className="flex items-center ml-5">
@@ -49,30 +49,32 @@ const Home = () => {
             <div className="flex items-center">
               <div>
                 <FaTasks
-                  className={`mr-5 text-xl ${openSideBar ? "text-white" : ""}`}
+                  className={`mr-5 text-xl ${
+                    openSideBar ? "text-white" : ""
+                  } md:hidden`}
                   onClick={(e) => setOpenSideBar(!openSideBar)}
                 />
                 <div
                   className={`absolute z-50 right-0 mt-4 pb-4 h-screen bg-white ${
                     openSideBar ? "w-[50%]" : "w-[0%]"
-                  }  pl-5 duration-500 overflow-hidden`}
+                  }  pl-5 duration-500 overflow-hidden md:flex md:w-auto md:bg-transparent md:-mt-5 md:right-[160px] md:h-auto `}
                 >
-                  <Link to={"/"}>
-                    <button
-                      className="capitalize text-lg border-b-2 border-black w-[100%] pb-2 pt-2"
-                      onClick={handelLogout}
-                    >
-                      logout
-                    </button>
-                  </Link>
                   <Link to={"/profile"}>
-                    <button className="capitalize text-lg border-b-2 border-black w-[100%] pb-2 pt-2">
+                    <button className="capitalize text-lg border-b-2 border-black w-[100%] pb-2 pt-2 md:border-none md:mr-16 md:hover:scale-110 md:duration-200 md:hover:-translate-y-1">
                       profile
                     </button>
                   </Link>
                   <Link to={"/setting"}>
-                    <button className="capitalize text-lg  border-b-2 border-black w-[100%] pb-2 pt-2">
+                    <button className="capitalize text-lg  border-b-2 border-black w-[100%] pb-2 pt-2 md:border-none md:mr-16 md:hover:scale-110 md:duration-200 md:hover:-translate-y-1">
                       setting
+                    </button>
+                  </Link>
+                  <Link to={"/"}>
+                    <button
+                      className="capitalize text-lg border-b-2 border-black w-[100%] pb-2 pt-2 md:border-none md:mr-16 md:hover:scale-110 md:duration-200 md:hover:-translate-y-1"
+                      onClick={handelLogout}
+                    >
+                      logout
                     </button>
                   </Link>
                 </div>
@@ -81,9 +83,9 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="p-5">
+      <div className="p-5 md:ml-5">
         {userArray[userIdentity].blogData.length === 0 ? (
-          <h1 className="bg-red-300 mb-7 p-2 drop-shadow-xl">
+          <h1 className="bg-red-300 mb-7 p-2 drop-shadow-xl md:min-h-[100px] md:p-5">
             There is no any Note.... <br />
             Please click on the{" "}
             <span className="bg-[#f1f1f1] rounded-2xl pl-[5px] pr-[5px] pb-1 capitalize">

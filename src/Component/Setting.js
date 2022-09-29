@@ -86,7 +86,7 @@ const Setting = () => {
   }, [message]);
 
   return (
-    <div className="bg-sky-300  p-3 min-h-screen ">
+    <div className="bg-sky-300  p-3 min-h-screen md:p-5">
       <div>
         <Link to="/home">
           <FaArrowLeft className="text-yellow-100 text-xl" />
@@ -95,7 +95,7 @@ const Setting = () => {
           <h1 className="text-center capitalize text-pink-600">{message}</h1>
         </div>
       </div>
-      <div className="p-4 ">
+      <div className="p-4 md:ml-5">
         <div className="flex items-center">
           <h1 className="mb-2 capitalize text-lg">change user name</h1>
           <input
@@ -105,7 +105,9 @@ const Setting = () => {
           />
         </div>
         <div
-          className={`overflow-hidden pl-3 ${openUserName ? "h-auto" : "h-0"}`}
+          className={`overflow-hidden pl-3 ${
+            openUserName ? "" : "-translate-x-[150%] "
+          } duration-500`}
         >
           <h1 className="mb-1 capitalize text-base">new user name</h1>
           <input
@@ -130,7 +132,11 @@ const Setting = () => {
           </button>
         </div>
 
-        <div className="flex items-center mt-3">
+        <div
+          className={`flex items-center mt-3 ${
+            openUserName ? "" : "-translate-y-[180px]"
+          } duration-500`}
+        >
           <h1 className="mb-2 capitalize text-lg">change password</h1>
           <input
             className="ml-2 h-4 w-4"
@@ -139,7 +145,11 @@ const Setting = () => {
           />
         </div>
         <div
-          className={`${openPassword ? "h-auto" : "h-0"} overflow-hidden pl-3`}
+          className={`${
+            openPassword ? "" : "-translate-x-[150%]"
+          } overflow-hidden pl-3 duration-500 ${
+            openUserName ? "" : "-translate-y-[180px]"
+          }`}
         >
           <h1 className="mb-1 capitalize text-base">old password</h1>
           <input

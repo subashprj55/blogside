@@ -115,15 +115,19 @@ const CreateUser = () => {
   };
 
   return (
-    <div className="bg-sky-300 p-3">
+    <div className="bg-sky-300 p-3 md:p-5 ">
       <div>
         <Link to="/">
           <FaArrowLeft className="text-yellow-100 text-xl" />
         </Link>
       </div>
       {/* creating form */}
-      <form action="" onSubmit={handelSubmit}>
-        <div className="mt-5 pl-5">
+      <form
+        action=""
+        onSubmit={handelSubmit}
+        className=" md:flex md:justify-center "
+      >
+        <div className="mt-5 pl-5 md:bg-white md:w-[30%] md:pt-5 md:pb-5 md:rounded-lg">
           <h1 className="mb-2 capitalize">first name :</h1>
           <input
             ref={refUser}

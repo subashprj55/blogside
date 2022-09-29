@@ -71,7 +71,7 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div className="bg-sky-300 p-3 h-[500px]">
+    <div className="bg-sky-300 p-3 min-h-screen md:p-5">
       <div>
         <Link to="/">
           <FaArrowLeft className="text-yellow-100 text-xl" />
@@ -82,73 +82,77 @@ const ForgotPassword = () => {
           </h1>
         </div>
       </div>
-      <form action="" onSubmit={handelSubmit} className="mt-5 pl-5">
-        <h1 className="capitalize mb-2 tracking-wide text-lg">user name:</h1>
-        <input
-          ref={refUserId}
-          value={userId}
-          onChange={(e) => setUserId(e.target.value)}
-          className="mb-3 p-1 pl-2 rounded-md outline-none border-2 border-sky-300"
-          type="text"
-        />
-        <h1 className="capitalize mb-2 tracking-wide text-lg">recover pin:</h1>
-        <input
-          ref={refRecoverPin}
-          value={recoverPin}
-          onChange={handelRecover}
-          className="mb-3 p-1 pl-2 rounded-md outline-none border-2 border-sky-300"
-          type="number"
-        />
-        {showPasswordFild ? (
-          <>
-            <h1 className="mb-2 capitalize">new password :</h1>
-            <div className="flex">
-              <input
-                ref={refPassword}
-                type={showPassword ? "text" : "password"}
-                className="mb-3 p-1 pl-2 rounded-md outline-none border-2 border-sky-300 "
-                value={password}
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                }}
-              />
-              {showPassword ? (
-                <FaEye
-                  className=" pt-2 text-2xl ml-5"
-                  onClick={(e) => {
-                    setShowPassword(false);
+      <form action="" onSubmit={handelSubmit} className="m-10 pl-5 ">
+        <div>
+          <h1 className="capitalize mb-2 tracking-wide text-lg">user name:</h1>
+          <input
+            ref={refUserId}
+            value={userId}
+            onChange={(e) => setUserId(e.target.value)}
+            className="mb-3 p-1 pl-2 rounded-md outline-none border-2 border-sky-300"
+            type="text"
+          />
+          <h1 className="capitalize mb-2 tracking-wide text-lg">
+            recover pin:
+          </h1>
+          <input
+            ref={refRecoverPin}
+            value={recoverPin}
+            onChange={handelRecover}
+            className="mb-3 p-1 pl-2 rounded-md outline-none border-2 border-sky-300"
+            type="number"
+          />
+          {showPasswordFild ? (
+            <>
+              <h1 className="mb-2 capitalize">new password :</h1>
+              <div className="flex">
+                <input
+                  ref={refPassword}
+                  type={showPassword ? "text" : "password"}
+                  className="mb-3 p-1 pl-2 rounded-md outline-none border-2 border-sky-300 "
+                  value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
                   }}
                 />
-              ) : (
-                <FaEyeSlash
-                  className=" pt-2 text-2xl ml-5"
-                  onClick={(e) => {
-                    setShowPassword(true);
+                {showPassword ? (
+                  <FaEye
+                    className=" pt-2 text-2xl ml-5"
+                    onClick={(e) => {
+                      setShowPassword(false);
+                    }}
+                  />
+                ) : (
+                  <FaEyeSlash
+                    className=" pt-2 text-2xl ml-5"
+                    onClick={(e) => {
+                      setShowPassword(true);
+                    }}
+                  />
+                )}
+              </div>
+              <h1 className="mb-2 capitalize">enter same password :</h1>
+              <div className="flex">
+                <input
+                  ref={refRePassword}
+                  type={showPassword ? "text" : "password"}
+                  className="mb-3 p-1 pl-2 rounded-md outline-none border-2 border-sky-300 "
+                  value={rePassword}
+                  onChange={(e) => {
+                    setRePassword(e.target.value);
                   }}
                 />
-              )}
-            </div>
-            <h1 className="mb-2 capitalize">enter same password :</h1>
-            <div className="flex">
-              <input
-                ref={refRePassword}
-                type={showPassword ? "text" : "password"}
-                className="mb-3 p-1 pl-2 rounded-md outline-none border-2 border-sky-300 "
-                value={rePassword}
-                onChange={(e) => {
-                  setRePassword(e.target.value);
-                }}
-              />
-            </div>
-            <div className="flex justify-center -ml-5">
-              <button className="mt-10 capitalize p-2 rounded-md tracking-wider w-40 bg-yellow-300 hover:bg-yellow-400 active:bg-yellow-500">
-                submit
-              </button>
-            </div>
-          </>
-        ) : (
-          ""
-        )}
+              </div>
+              <div className="">
+                <button className="mt-10 capitalize p-2 rounded-md tracking-wider w-40 bg-yellow-300 hover:bg-yellow-400 active:bg-yellow-500">
+                  submit
+                </button>
+              </div>
+            </>
+          ) : (
+            ""
+          )}
+        </div>
       </form>
     </div>
   );

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useGlobalContext } from "./Contex";
 import { BsHeartFill } from "react-icons/bs";
 import { TbDots } from "react-icons/tb";
+import parse from "html-react-parser";
 
 const Blog = ({ heading, date, text, index, setUpdate, update }) => {
   const { userArray, userIdentity, setEditIndex, setIsEditing } =
@@ -45,12 +46,12 @@ const Blog = ({ heading, date, text, index, setUpdate, update }) => {
         <div className="flex md:mr-5">
           <BsHeartFill
             onClick={(e) => setLike(!like)}
-            className={`text-2xl mr-1 ${
+            className={`hover:cursor-pointer text-2xl mr-1 ${
               like ? "text-red-600" : "text-white scale-90"
             } ${scale ? "scale-125" : ""} duration-1000 md:mr-3`}
           />
           <TbDots
-            className={`hidden md:block text-2xl ${
+            className={`hover:cursor-pointer hidden md:block text-2xl ${
               showOption ? "text-white" : ""
             }`}
             onClick={(e) => setShowOpetion(!showOption)}
@@ -63,8 +64,7 @@ const Blog = ({ heading, date, text, index, setUpdate, update }) => {
         <p className=" font-mono font-light mr-1">{month}</p>
         <p className=" font-mono font-light">{year}</p>
       </div>
-      <p>
-        {" "}
+      {/* <div>
         {`${readMore ? text : text.slice(0, 80)}`}
         {text.length > 80 && (
           <button
@@ -76,7 +76,10 @@ const Blog = ({ heading, date, text, index, setUpdate, update }) => {
             {readMore ? "see less" : "...see mover"}
           </button>
         )}
-      </p>
+      </div> */}
+      <div>{parse(text)}</div>
+      {console.log(parse(text))}
+
       {(readMore || text.length < 80 || window.screen.width > 768) && (
         <div
           className={`flex mt-2 md:absolute md:right-0 md:bg-white md:inline-block md:top-7 md:h-[80%] ${
@@ -84,7 +87,7 @@ const Blog = ({ heading, date, text, index, setUpdate, update }) => {
           } md:duration-300`}
         >
           <button
-            className=" mr-2 capitalize p-2 rounded-md tracking-wider w-28 bg-yellow-300 hover:bg-yellow-400 active:bg-yellow-500 md:bg-transparent md:hover:bg-transparent md:border-b-2 md:border-black md:rounded-none md:ml-2 md:hover:text-[17px] md:duration-200"
+            className=" mr-2 capitalize p-2 rounded-md tracking-wider w-28 bg-yellow-300 hover:bg-yellow-400 active:bg-yellow-500 md:bg-transparent md:hover:bg-transparent md:border-b-2 md:border-gray-100 md:rounded-none md:ml-2 md:hover:text-[17px] md:duration-200"
             onClick={handelUpdate}
           >
             Update

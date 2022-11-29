@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import { useGlobalContext } from "./Contex";
+import TextEditor from "./TextEditor";
 
 const CreateBlog = () => {
   const navigate = useNavigate();
@@ -51,7 +52,10 @@ const CreateBlog = () => {
     <div className="bg-sky-300 min-h-screen p-3 md:p-5">
       <div>
         <Link to="/home">
-          <FaArrowLeft className="text-yellow-100 text-xl" />
+          <FaArrowLeft
+            onClick={(e) => setIsEditing(false)}
+            className="text-yellow-100 text-xl"
+          />
         </Link>
       </div>
       <form action="" onSubmit={handleUpload} className="p-4 md:m-5">
@@ -64,18 +68,12 @@ const CreateBlog = () => {
           required
         />
         <h1 className="capitalize mb-2 text-xl ">body :-</h1>
-        <textarea
-          value={body}
-          onChange={(e) => setBody(e.target.value)}
-          className="w-[100%] outline-none p-1 pl-2 mb-3"
-          name=""
-          id=""
-          cols="30"
-          rows="10"
-        ></textarea>
+
+        <TextEditor body={body} setBody={setBody} />
+
         <button
-          className={`${
-            isEditing ? "text-green-500" : ""
+          className={`mt-3 ${
+            isEditing ? " text-green-500" : ""
           } uppercase p-2 rounded-md tracking-wider w-32 bg-yellow-300 hover:bg-yellow-400 active:bg-yellow-500`}
         >
           {isEditing ? "update" : "upload"}

@@ -83,59 +83,61 @@ const LoginForm = () => {
       </div> */}
       <div className=" bg-sky-300 pr-[10%] pl-[10%] min-h-screen pt-10 pb-10 flex justify-center">
         <form
-          className="md:bg-white md:w-[35%] md:rounded-lg md:pt-5 md:pb-5"
+          className=" md:w-[35%] md:rounded-lg relative overflow-hidden"
           action=""
           onSubmit={checkLogIN}
         >
-          <div className="md:flex md:justify-center">
-            <div className="pl-7">
-              <h1 className="capitalize mb-2 tracking-wide text-lg">
-                user name
-              </h1>
-              <input
-                ref={refUserId}
-                value={userId}
-                onChange={(e) => {
-                  setUserId(e.target.value);
-                }}
-                className="mb-3 p-1 pl-2 rounded-md outline-none border-2 border-sky-300"
-                type="text"
-              />
-              <h1 className="capitalize mb-2 tracking-wide text-lg">
-                Password
-              </h1>
-              <input
-                ref={refPassword}
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="mb-3 p-1 pl-2 rounded-md outline-none border-2 border-sky-300"
-                type="text"
-              />
-              <h1 className="capitalize text-red-500 h-6">{errorMwssage}</h1>
+          <div className="md:pt-5 md:pb-5 h-full md:bg-white">
+            <div className="md:flex md:justify-center">
+              <div className="pl-7">
+                <h1 className="capitalize mb-2 tracking-wide text-lg">
+                  user name
+                </h1>
+                <input
+                  ref={refUserId}
+                  value={userId}
+                  onChange={(e) => {
+                    setUserId(e.target.value);
+                  }}
+                  className="mb-3 p-1 pl-2 rounded-md outline-none border-2 border-sky-300"
+                  type="text"
+                />
+                <h1 className="capitalize mb-2 tracking-wide text-lg">
+                  Password
+                </h1>
+                <input
+                  ref={refPassword}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="mb-3 p-1 pl-2 rounded-md outline-none border-2 border-sky-300"
+                  type="text"
+                />
+                <h1 className="capitalize text-red-500 h-6">{errorMwssage}</h1>
+              </div>
             </div>
-          </div>
-          <br />
-          <div className="flex justify-center">
-            <button className="mt-6 -ml-2 capitalize p-2 rounded-md tracking-wider w-40 bg-yellow-300 hover:bg-yellow-400 active:bg-yellow-500">
-              log in
-            </button>
-          </div>
-          <br />
-          <div className="md:flex md:justify-center">
-            <div className="md:w-40">
-              <Link
-                to="/create-user"
-                className="underline underline-offset-2  text-red-500 text-lg "
-              >
-                sign up
-              </Link>
-              <br />
-              <Link
-                to="/forgot-password"
-                className="underline underline-offset-2 "
-              >
-                Forgot Password?
-              </Link>
+            <br />
+            <div className="flex justify-center">
+              <button className="mt-6 -ml-2 capitalize p-2 rounded-md tracking-wider w-40 bg-yellow-300 hover:bg-yellow-400 active:bg-yellow-500">
+                log in
+              </button>
+            </div>
+            <br />
+            <div className="md:flex md:justify-center">
+              <div className="md:w-40">
+                <Link
+                  to="/create-user"
+                  className="underline underline-offset-2  text-red-500 text-lg "
+                >
+                  sign up
+                </Link>
+                <br />
+                <Link
+                  to="/forgot-password"
+                  className="underline underline-offset-2 "
+                >
+                  Forgot Password?
+                </Link>
+              </div>
             </div>
           </div>
         </form>

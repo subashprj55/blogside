@@ -11,6 +11,8 @@ const TextEditor = ({ body, setBody }) => {
     () => ({
       readonly: false,
       buttons: ["bold", "italic", "underline"],
+      height: 400,
+      buttonsXS: ["bold", "italic", "underline"],
     }),
     []
   );
@@ -20,7 +22,7 @@ const TextEditor = ({ body, setBody }) => {
       <JoditEditor
         ref={editor}
         value={body}
-        tabIndex={2} // tabIndex of textarea
+        tabIndex={1} // tabIndex of textarea
         onChange={(newContent) => {
           setBody(newContent);
         }}

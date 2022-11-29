@@ -78,7 +78,6 @@ const Blog = ({ heading, date, text, index, setUpdate, update }) => {
         )}
       </div> */}
       <div>{parse(text)}</div>
-      {console.log(parse(text))}
 
       {(readMore || text.length < 80 || window.screen.width > 768) && (
         <div

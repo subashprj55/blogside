@@ -11,7 +11,7 @@ const Blog = ({ heading, date, text, index, setUpdate, update }) => {
 
   const navigate = useNavigate();
   const { weekday, day, month, year } = date;
-  const [readMore, setReadMore] = useState(false);
+  const [readMore, setReadMore] = useState(true);
   const [like, setLike] = useState(false);
   const [scale, setScale] = useState(false);
   const [showOption, setShowOpetion] = useState(false);

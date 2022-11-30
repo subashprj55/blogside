@@ -23,9 +23,10 @@ const TextEditor = ({ body, setBody }) => {
         ref={editor}
         value={body}
         tabIndex={1} // tabIndex of textarea
-        onChange={(newContent) => {
-          setBody(newContent);
-        }}
+        // onChange={(newContent) => {
+        //   setBody(newContent);
+        // }}
+        onBlur={(newContent) => setBody(newContent)}
         config={config}
       />
     </>
